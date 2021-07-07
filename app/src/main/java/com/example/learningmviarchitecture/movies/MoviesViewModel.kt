@@ -3,13 +3,16 @@ package com.example.learningmviarchitecture.movies
 import androidx.lifecycle.viewModelScope
 import com.example.learningmviarchitecture.base.BaseViewModel
 import com.example.learningmviarchitecture.data.network.ApiClient
+import com.example.learningmviarchitecture.data.repository.MoviesRepositoryImpl
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class MoviesViewModel :
-    BaseViewModel<MoviesContract.MoviesEvent, MoviesContract.State, MoviesContract.MoviesEffect>() {
+class MoviesViewModel @Inject constructor(
+    private val moviesRepositoryImpl: MoviesRepositoryImpl
+) : BaseViewModel<MoviesContract.MoviesEvent, MoviesContract.State, MoviesContract.MoviesEffect>() {
 
     override fun createInitialState(): MoviesContract.State {
         return MoviesContract.State(MoviesContract.MoviesState.Idle)
@@ -28,19 +31,10 @@ class MoviesViewModel :
             try {
                 delay(1_000)
 
-                val apiClient = ApiClient
-                    .apiInterface
-                    .getMoviesPopular("YOUR_API_KEY")
+                val data = moviesRepositoryImpl.getMoviesPopular()
 
                 withContext(Dispatchers.Main) {
-                    val data = apiClient.results
-                    setState {
-                        copy(
-                            state = MoviesContract.MoviesState.Success(
-                                data ?: emptyList()
-                            )
-                        )
-                    }
+                    setState { copy(state = MoviesContract.MoviesState.Success(data)) }
                 }
             } catch (e: Exception) {
                 setEffect { MoviesContract.MoviesEffect.ShowToast }

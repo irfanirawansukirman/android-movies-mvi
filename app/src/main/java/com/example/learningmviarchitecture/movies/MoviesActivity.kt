@@ -1,32 +1,37 @@
 package com.example.learningmviarchitecture.movies
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.core.view.isVisible
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import coil.load
 import coil.transform.CircleCropTransformation
 import com.example.learningmviarchitecture.R
 import com.example.learningmviarchitecture.databinding.ActivityMoviesBinding
+import com.example.learningmviarchitecture.di.ViewModelFactory
+import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.coroutines.flow.collect
+import javax.inject.Inject
 
-class MoviesActivity : AppCompatActivity() {
+class MoviesActivity : DaggerAppCompatActivity() {
 
     private lateinit var binding: ActivityMoviesBinding
+    private lateinit var viewModel: MoviesViewModel
 
-    private val viewModel: MoviesViewModel by viewModels()
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMoviesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        viewModel = ViewModelProvider(this, viewModelFactory).get(MoviesViewModel::class.java)
+
         initObservers()
 
-        binding.btnSubmit.setOnClickListener { clear();getMoviesPopular() }
+        binding.btnSubmit.setOnClickListener { clear(); getMoviesPopular() }
     }
 
     private fun clear() {

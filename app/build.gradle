@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -63,4 +64,10 @@ dependencies {
 
     // Coil for image loader
     implementation "io.coil-kt:coil:1.2.2"
+
+    // Dagger 2
+    implementation "com.google.dagger:dagger-android:2.35.1"
+    implementation "com.google.dagger:dagger-android-support:2.29.1"
+    kapt "com.google.dagger:dagger-compiler:2.29.1"
+    kapt "com.google.dagger:dagger-android-processor:2.29.1"
 }
