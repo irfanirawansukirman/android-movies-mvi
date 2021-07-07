@@ -14,7 +14,7 @@ class MoviesContract {
     sealed class MoviesState {
         object Idle : MoviesState()
         object Loading : MoviesState()
-        data class Success(val data: List<Result>) : MoviesState()
+        data class Success(val data: List<Result>?) : MoviesState()
     }
 
     sealed class MoviesEffect : UIEffect {

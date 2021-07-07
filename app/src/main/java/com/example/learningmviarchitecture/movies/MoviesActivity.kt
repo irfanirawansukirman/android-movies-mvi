@@ -55,10 +55,9 @@ class MoviesActivity : DaggerAppCompatActivity() {
                     is MoviesContract.MoviesState.Success -> {
                         binding.apply {
                             progress.isVisible = false
-                            val number = (0..9).random()
-                            val movie = it.state.data[number]
-                            tvTitle.text = movie.originalTitle
-                            ivPoster.load("https://image.tmdb.org/t/p/w500${movie.backdropPath}") {
+                            val movie = it.state.data?.get(0)
+                            tvTitle.text = movie?.originalTitle ?: "-"
+                            ivPoster.load("https://image.tmdb.org/t/p/w500${movie?.backdropPath}") {
                                 crossfade(true)
                                 placeholder(R.drawable.ic_launcher_background)
                                 transformations(CircleCropTransformation())

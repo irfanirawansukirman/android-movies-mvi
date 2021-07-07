@@ -4,5 +4,5 @@ import com.example.learningmviarchitecture.data.model.Result
 
 interface MoviesRepository {
 
-    suspend fun getMoviesPopular(): List<Result>
+    suspend fun getMoviesPopular(): List<Result>?
 }
