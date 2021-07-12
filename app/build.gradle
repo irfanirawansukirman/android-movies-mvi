@@ -4,6 +4,9 @@ plugins {
     id 'kotlin-kapt'
 }
 
+def localProperties = new Properties()
+localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -21,6 +24,8 @@ android {
         // "pm clear" command after each test invocation. This command ensures
         // that the app's state is completely cleared between tests.
         testInstrumentationRunnerArguments clearPackageData: 'true'
+
+        buildConfigField "String", "TMDB_API_KEY", "\"" + localProperties['TMDB_API_KEY'] + "\""
     }
 
     testOptions {
@@ -63,8 +68,16 @@ dependencies {
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
-    implementation "com.squareup.okhttp3:okhttp:4.9.0"
-    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
+    implementation "com.squareup.okhttp3:okhttp:4.9.1"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.1"
+
+    // Room
+    implementation "androidx.room:room-runtime:2.3.0"
+    kapt "androidx.room:room-compiler:2.3.0"
+    implementation "androidx.room:room-ktx:2.3.0"
+
+    // Secure Preference
+    implementation "androidx.security:security-crypto:1.1.0-alpha03"
 
     // Coil for image loader
     implementation "io.coil-kt:coil:1.2.2"
@@ -72,18 +85,18 @@ dependencies {
     // Dagger 2
     implementation "com.google.dagger:dagger-android:2.35.1"
     implementation "com.google.dagger:dagger-android-support:2.29.1"
-    kapt "com.google.dagger:dagger-compiler:2.29.1"
+    kapt "com.google.dagger:dagger-compiler:2.34.1"
     kapt "com.google.dagger:dagger-android-processor:2.29.1"
 
     // Android Test
-    testImplementation "io.mockk:mockk:1.10.0"
+    testImplementation "io.mockk:mockk:1.11.0"
     androidTestUtil 'androidx.test:orchestrator:1.4.0'
 
     // Local server test
     androidTestImplementation "com.squareup.okhttp3:mockwebserver:4.9.0"
 
     // Coroutines testing
-    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.3'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.0'
 
     // Testing-only dependencies
     androidTestImplementation 'androidx.test:core:' + rootProject.coreVersion

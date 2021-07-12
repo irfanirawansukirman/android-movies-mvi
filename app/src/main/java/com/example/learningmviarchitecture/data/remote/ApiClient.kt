@@ -1,4 +1,4 @@
-package com.example.learningmviarchitecture.data.network
+package com.example.learningmviarchitecture.data.remote
 
 import com.example.learningmviarchitecture.BuildConfig
 import okhttp3.OkHttpClient

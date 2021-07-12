@@ -1,7 +1,6 @@
-package com.example.learningmviarchitecture.data.network
+package com.example.learningmviarchitecture.data.remote
 
-import com.example.learningmviarchitecture.data.model.Movies
-import retrofit2.Call
+import com.example.learningmviarchitecture.data.remote.model.Movies
 import retrofit2.http.GET
 import retrofit2.http.Query
 

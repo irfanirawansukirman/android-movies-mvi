@@ -1,4 +1,4 @@
-package com.example.learningmviarchitecture.data.model
+package com.example.learningmviarchitecture.data.remote.model
 
 import com.google.gson.annotations.SerializedName
 

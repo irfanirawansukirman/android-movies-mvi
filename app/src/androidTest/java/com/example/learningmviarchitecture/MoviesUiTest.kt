@@ -8,7 +8,7 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
-import com.example.learningmviarchitecture.movies.MoviesActivity
+import com.example.learningmviarchitecture.feature.movies.MoviesActivity
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -29,11 +29,11 @@ class MoviesUiTest : BaseUiTest() {
     fun showMoviesPopularIsSuccess() {
         mockSuccess(200, "responses/movies_popular_success.json")
 
-        onView(withId(R.id.btn_submit)).apply {
-            check(matches(isDisplayed()))
-            check(matches(withText("Get Movies")))
-            perform(click())
-        }
+//        onView(withId(R.id.btn_submit)).apply {
+//            check(matches(isDisplayed()))
+//            check(matches(withText("Get Movies")))
+//            perform(click())
+//        }
 
         SystemClock.sleep(2_000)
 

@@ -1,9 +1,8 @@
 package com.example.learningmviarchitecture.di
 
 import com.example.learningmviarchitecture.BuildConfig
-import com.example.learningmviarchitecture.data.network.ApiClient
-import com.example.learningmviarchitecture.data.network.ApiInterface
-import com.example.learningmviarchitecture.data.repository.MoviesRepositoryImpl
+import com.example.learningmviarchitecture.data.remote.ApiInterface
+import com.example.learningmviarchitecture.data.remote.repository.MoviesRemoteRepositoryImpl
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -64,7 +63,7 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideMoviesRepository(apiInterface: ApiInterface): MoviesRepositoryImpl {
-        return MoviesRepositoryImpl(apiInterface)
+    fun provideMoviesRemoteRepositoryImpl(apiInterface: ApiInterface): MoviesRemoteRepositoryImpl {
+        return MoviesRemoteRepositoryImpl(apiInterface)
     }
 }
