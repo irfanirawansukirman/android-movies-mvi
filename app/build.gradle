@@ -85,33 +85,6 @@ dependencies {
     // Dagger 2
     implementation "com.google.dagger:dagger-android:2.35.1"
     implementation "com.google.dagger:dagger-android-support:2.29.1"
-    kapt "com.google.dagger:dagger-compiler:2.34.1"
+    kapt "com.google.dagger:dagger-compiler:2.36"
     kapt "com.google.dagger:dagger-android-processor:2.29.1"
-
-    // Android Test
-    testImplementation "io.mockk:mockk:1.11.0"
-    androidTestUtil 'androidx.test:orchestrator:1.4.0'
-
-    // Local server test
-    androidTestImplementation "com.squareup.okhttp3:mockwebserver:4.9.0"
-
-    // Coroutines testing
-    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.0'
-
-    // Testing-only dependencies
-    androidTestImplementation 'androidx.test:core:' + rootProject.coreVersion
-    androidTestImplementation 'androidx.test:core-ktx:' + rootProject.coreVersion
-    androidTestImplementation 'androidx.test.ext:junit:' + rootProject.extJUnitVersion
-    androidTestImplementation 'androidx.test.ext:junit-ktx:' + rootProject.extJUnitVersion
-    androidTestImplementation 'androidx.test:runner:' + rootProject.runnerVersion
-    androidTestImplementation 'androidx.test.espresso:espresso-core:' + rootProject.espressoVersion
-
-    testImplementation 'androidx.test:core:' + rootProject.coreVersion;
-    testImplementation 'androidx.test.ext:junit:' + rootProject.extJUnitVersion
-    testImplementation 'junit:junit:4.13.2'
-    testImplementation 'org.robolectric:robolectric:' + rootProject.robolectricVersion
-    testImplementation 'androidx.test.espresso:espresso-core:' + rootProject.espressoVersion
-    testImplementation 'androidx.test.espresso:espresso-intents:' + rootProject.espressoVersion
-    testImplementation 'androidx.test.ext:truth:' + rootProject.extTruthVersion
-    testImplementation 'androidx.arch.core:core-testing:2.1.0'
 }

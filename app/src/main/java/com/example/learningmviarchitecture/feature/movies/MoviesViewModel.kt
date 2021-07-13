@@ -4,10 +4,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.learningmviarchitecture.base.BaseViewModel
 import com.example.learningmviarchitecture.data.cache.entity.MoviePopularEnt
 import com.example.learningmviarchitecture.data.repository.AppRepositoryImpl
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class MoviesViewModel @Inject constructor(
@@ -33,10 +31,7 @@ class MoviesViewModel @Inject constructor(
                 delay(1_000)
 
                 val data = appRepositoryImpl.getRemoteMoviesPopular()
-
-                withContext(Dispatchers.Main) {
-                    setState { copy(state = MoviesContract.MoviesState.Success(data)) }
-                }
+                setState { copy(state = MoviesContract.MoviesState.Success(data)) }
             } catch (e: Exception) {
                 setEffect { MoviesContract.MoviesEffect.ShowToast }
             }
