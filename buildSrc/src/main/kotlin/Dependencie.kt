@@ -35,6 +35,8 @@ object App {
     val glide by lazy { "com.github.bumptech.glide:glide:${Version.glide}" }
     val glideCompiler by lazy { "com.github.bumptech.glide:compiler:${Version.glideCompiler}" }
 
+    val coil by lazy { "io.coil-kt:coil:${Version.coil}" }
+
     val runtimeKtx by lazy { "androidx.lifecycle:lifecycle-runtime-ktx:${Version.runtimeKtx}" }
     val lifecycleCommonJava8 by lazy { "androidx.lifecycle:lifecycle-common-java8:${Version.lifecycleCommonJava8}" }
     val viewModelKtx by lazy { "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.viewModelKtx}" }

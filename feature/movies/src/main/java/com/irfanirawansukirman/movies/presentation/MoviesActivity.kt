@@ -1,17 +1,22 @@
 package com.irfanirawansukirman.movies.presentation
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.irfanirawansukirman.core.ViewModelFactory
+import com.irfanirawansukirman.movies.R
 import com.irfanirawansukirman.movies.databinding.MoviesActivityBinding
 import com.irfanirawansukirman.movies.di.MoviesComponentProvider
 import com.irfanirawansukirman.remote.data.response.MoviesPopularData
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
+
 
 @ExperimentalCoroutinesApi
 class MoviesActivity : AppCompatActivity() {
@@ -37,6 +42,34 @@ class MoviesActivity : AppCompatActivity() {
         binding.recyclerMovies.adapter = adapter
 
         getRemoteMoviesPopular()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.movies, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+
+        if (id == R.id.action_about) {
+            navigateToAbout()
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun navigateToAbout() {
+        try {
+            val intent = Intent(
+                this,
+                Class.forName("com.irfanirawansukirman.about.AboutActivity")
+            )
+            startActivity(intent)
+        } catch (e: ClassNotFoundException) {
+            e.printStackTrace()
+        }
     }
 
     private fun getRemoteMoviesPopular() {

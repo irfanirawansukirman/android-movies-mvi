@@ -49,4 +49,6 @@ dependencies {
     implementation(project(":cache"))
     implementation(project(":remote"))
     implementation(project(":core"))
+
+    implementation(App.coil)
 }
