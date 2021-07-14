@@ -11,7 +11,7 @@ data class MoviesPopularResponse(
     @Json(name = "page")
     val page: Int?,
     @Json(name = "results")
-    val results: List<MoviesGeneralData>?,
+    val results: List<MoviesPopularData>?,
     @Json(name = "total_pages")
     val totalPages: Int?,
     @Json(name = "total_results")
@@ -20,7 +20,7 @@ data class MoviesPopularResponse(
 
 @Parcelize
 @JsonClass(generateAdapter = true)
-data class MoviesGeneralData(
+data class MoviesPopularData(
     @Json(name = "adult")
     val adult: Boolean?,
     @Json(name = "backdrop_path")

@@ -8,6 +8,7 @@ plugins {
 }
 
 val movieApiBaseUrl: String = gradleLocalProperties(rootDir).getProperty("MOVIE_API_BASE_URL")
+val tmdbApiKey: String = gradleLocalProperties(rootDir).getProperty("TMDB_API_KEY")
 
 android {
     compileSdkVersion(Android.compileSdk)
@@ -23,6 +24,7 @@ android {
         consumerProguardFiles("consumer-rules.pro")
 
         buildConfigField("String", "MOVIE_API_BASE_URL", "\"" + movieApiBaseUrl + "\"")
+        buildConfigField("String", "TMDB_API_KEY", "\"" + tmdbApiKey + "\"")
     }
 
     buildTypes {

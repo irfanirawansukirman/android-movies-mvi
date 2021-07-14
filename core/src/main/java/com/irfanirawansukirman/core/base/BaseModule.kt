@@ -1,4 +1,4 @@
-package com.irfanirawansukirman.core.di
+package com.irfanirawansukirman.core.base
 
 import com.irfanirawansukirman.core.CoroutinesContextProvider
 import dagger.Module

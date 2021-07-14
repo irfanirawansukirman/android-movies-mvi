@@ -6,8 +6,6 @@ plugins {
     id("kotlin-kapt")
 }
 
-val tmdbApiKey: String = gradleLocalProperties(rootDir).getProperty("TMDB_API_KEY")
-
 android {
     compileSdkVersion(Android.compileSdk)
     buildToolsVersion = Android.buildTools
@@ -25,8 +23,6 @@ android {
         // "pm clear" command after each test invocation. This command ensures
         // that the app's state is completely cleared between tests.
         testInstrumentationRunnerArguments += mapOf("clearPackageData" to "true")
-
-        buildConfigField("String", "TMDB_API_KEY", "\"" + tmdbApiKey + "\"")
     }
 
     testOptions {

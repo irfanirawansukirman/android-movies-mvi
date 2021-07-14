@@ -12,9 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LearningMVIArchitecture">
-        <activity android:name="com.irfanirawansukirman.movies.MoviesActivity" />
         <activity android:name="com.irfanirawansukirman.about.AboutActivity" />
-        <activity android:name="com.irfanirawansukirman.learningmviarchitecture.feature.movies.MoviesActivity">
+        <activity android:name="com.irfanirawansukirman.movies.presentation.MoviesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

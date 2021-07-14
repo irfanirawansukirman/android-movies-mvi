@@ -2,7 +2,7 @@ object Version {
 
     // plugin
     const val gradlePlugin = "4.2.2"
-    const val kotlin = "1.4.20"
+    const val kotlin = "1.4.21"
 
     // app
     const val appCompat = "1.3.0"
@@ -41,7 +41,7 @@ object Version {
     const val dagger = "2.36"
     const val daggerAndroid = "2.35.1"
     const val daggerAndroidSupport = "2.29.1"
-    const val daggerCompiler = "2.36"
+    const val daggerCompiler = "2.33"
     const val daggerAndroidProcessor = "2.29.1"
 
     const val chuck = "1.1.0"

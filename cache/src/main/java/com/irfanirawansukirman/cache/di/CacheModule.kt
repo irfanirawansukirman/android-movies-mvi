@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
 import com.irfanirawansukirman.cache.BuildConfig
-import com.irfanirawansukirman.cache.dao.MoviesPopularDao
+import com.irfanirawansukirman.cache.dao.MovieDao
 import com.irfanirawansukirman.cache.factory.CacheFactory
 import dagger.Module
 import dagger.Provides
@@ -24,7 +24,7 @@ class CacheModule {
 
     @Singleton
     @Provides
-    fun provideMovieDao(cacheFactory: CacheFactory): MoviesPopularDao = cacheFactory.movieDao()
+    fun provideMovieDao(cacheFactory: CacheFactory): MovieDao = cacheFactory.movieDao()
 
     @Singleton
     @Provides
