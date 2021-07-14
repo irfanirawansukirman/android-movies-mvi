@@ -24,7 +24,7 @@ class MoviesViewModel @Inject constructor(
         }
     }
 
-    fun getRemoteMoviesPopular() {
+    private fun getRemoteMoviesPopular() {
         viewModelScope.launch {
             moviesUseCaseImpl.getRemoteMoviesPopular()
                 .onStart { emit(Resource.Loading) }
