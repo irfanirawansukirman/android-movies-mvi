@@ -2,7 +2,7 @@ object Version {
 
     // plugin
     const val gradlePlugin = "4.2.2"
-    const val kotlin = "1.5.20"
+    const val kotlin = "1.4.20"
 
     // app
     const val appCompat = "1.3.0"

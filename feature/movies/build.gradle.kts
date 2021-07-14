@@ -47,6 +47,6 @@ android {
 
 dependencies {
     implementation(project(":cache"))
-    implementation(project(":network"))
+    implementation(project(":remote"))
     implementation(project(":core"))
 }

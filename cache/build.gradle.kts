@@ -1,8 +1,13 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     id("com.android.library")
     id("kotlin-android")
     id("kotlin-kapt")
 }
+
+val dbMovies: String = gradleLocalProperties(rootDir).getProperty("DB_MOVIES")
+val secretPreferenceName: String = gradleLocalProperties(rootDir).getProperty("SECRET_PREFERENCE_NAME")
 
 android {
     compileSdkVersion(Android.compileSdk)
@@ -16,6 +21,9 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+
+        buildConfigField("String", "DB_MOVIES", "\"" + dbMovies + "\"")
+        buildConfigField("String", "SECRET_PREFERENCE_NAME", "\"" + secretPreferenceName + "\"")
     }
 
     buildTypes {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.movies">
+    package="com.irfanirawansukirman.movies">
 
     <application>
-        <activity android:name=".MoviesActivity"></activity>
+        <activity android:name="com.irfanirawansukirman.movies.MoviesActivity"></activity>
     </application>
 
 </manifest>
