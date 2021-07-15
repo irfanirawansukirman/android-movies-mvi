@@ -6,10 +6,10 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
-import com.irfanirawansukirman.cache.entity.MoviesPopularEnt
 import com.irfanirawansukirman.core.ViewModelFactory
 import com.irfanirawansukirman.movies.databinding.FavoriteActivityBinding
 import com.irfanirawansukirman.movies.di.MoviesComponentProvider
+import com.irfanirawansukirman.movies.presentation.movies.model.MoviesUiModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
@@ -73,7 +73,7 @@ class FavoriteActivity : AppCompatActivity() {
         }
     }
 
-    private fun showMovies(movies: List<MoviesPopularEnt>) {
+    private fun showMovies(movies: List<MoviesUiModel>) {
         binding.recyclerFavorite.isVisible = true
 
         adapter.addAllMovies(movies)

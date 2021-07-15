@@ -1,10 +1,10 @@
 package com.irfanirawansukirman.movies.data.cache
 
-import com.irfanirawansukirman.cache.entity.MoviesPopularEnt
+import com.irfanirawansukirman.movies.data.model.MoviesDataModel
 
 interface MoviesCacheRepository {
 
-    suspend fun insertMoviePopular(moviesPopularEnt: MoviesPopularEnt)
+    suspend fun insertMoviePopular(moviesDataModel: MoviesDataModel)
 
-    suspend fun getCacheMoviesPopular(): List<MoviesPopularEnt>?
+    suspend fun getCacheMoviesPopular(): List<MoviesDataModel>?
 }

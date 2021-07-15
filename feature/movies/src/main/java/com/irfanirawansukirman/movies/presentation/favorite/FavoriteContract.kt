@@ -1,9 +1,9 @@
 package com.irfanirawansukirman.movies.presentation.favorite
 
-import com.irfanirawansukirman.cache.entity.MoviesPopularEnt
 import com.irfanirawansukirman.core.UiEffect
 import com.irfanirawansukirman.core.UiEvent
 import com.irfanirawansukirman.core.UiState
+import com.irfanirawansukirman.movies.presentation.movies.model.MoviesUiModel
 
 object FavoriteContract {
 
@@ -14,7 +14,7 @@ object FavoriteContract {
     sealed class FavoriteState {
         object Idle : FavoriteState()
         object Loading : FavoriteState()
-        data class SuccessCacheGetMoviesPopular(val movies: List<MoviesPopularEnt>) :
+        data class SuccessCacheGetMoviesPopular(val movies: List<MoviesUiModel>) :
             FavoriteState()
     }
 

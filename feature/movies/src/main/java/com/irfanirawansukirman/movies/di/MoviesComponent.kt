@@ -10,7 +10,7 @@ import javax.inject.Singleton
 
 @ExperimentalCoroutinesApi
 @Singleton
-@Component(modules = [MoviesModule::class, MoviesVMModule::class])
+@Component(modules = [MoviesModule::class, MoviesVMModule::class, MoviesMapperModule::class])
 interface MoviesComponent {
 
     @Component.Builder

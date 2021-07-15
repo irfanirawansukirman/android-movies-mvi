@@ -1,22 +1,22 @@
 package com.irfanirawansukirman.movies.presentation.movies
 
-import com.irfanirawansukirman.cache.entity.MoviesPopularEnt
 import com.irfanirawansukirman.core.UiEffect
 import com.irfanirawansukirman.core.UiEvent
 import com.irfanirawansukirman.core.UiState
-import com.irfanirawansukirman.remote.data.response.MoviesPopularData
+import com.irfanirawansukirman.movies.data.model.MoviesDataModel
+import com.irfanirawansukirman.movies.presentation.movies.model.MoviesUiModel
 
 object MoviesContract {
 
     sealed class MoviesEvent : UiEvent {
         object OnGetRemoteMoviesPopular : MoviesEvent()
-        data class OnSaveCacheMoviePopular(val moviesPopularEnt: MoviesPopularEnt) : MoviesEvent()
+        data class OnSaveCacheMoviePopular(val moviesDataModel: MoviesDataModel) : MoviesEvent()
     }
 
     sealed class MoviesState {
         object Idle : MoviesState()
         object Loading : MoviesState()
-        data class SuccessRemoteGetMoviesPopular(val movies: List<MoviesPopularData>) : MoviesState()
+        data class SuccessRemoteGetMoviesPopular(val movies: List<MoviesUiModel>) : MoviesState()
         data class SuccessCacheInsertMoviePopular(val message: String) : MoviesState()
     }
 

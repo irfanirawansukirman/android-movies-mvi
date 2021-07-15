@@ -3,6 +3,7 @@ package com.irfanirawansukirman.movies.presentation.favorite
 import androidx.lifecycle.viewModelScope
 import com.irfanirawansukirman.core.base.BaseViewModel
 import com.irfanirawansukirman.movies.domain.MoviesUseCaseImpl
+import com.irfanirawansukirman.movies.presentation.movies.mapper.MoviesDomainUiMapper
 import com.irfanirawansukirman.remote.util.Resource
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
@@ -11,7 +12,8 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class FavoriteViewModel @Inject constructor(
-    private val moviesUseCaseImpl: MoviesUseCaseImpl
+    private val moviesUseCaseImpl: MoviesUseCaseImpl,
+    private val moviesDomainUiMapper: MoviesDomainUiMapper
 ) : BaseViewModel<FavoriteContract.FavoriteEvent, FavoriteContract.State, FavoriteContract.FavoriteEffect>() {
 
     override fun createInitialState(): FavoriteContract.State {
@@ -37,7 +39,7 @@ class FavoriteViewModel @Inject constructor(
                             setState {
                                 copy(
                                     favoriteState = FavoriteContract.FavoriteState.SuccessCacheGetMoviesPopular(
-                                        movies
+                                        moviesDomainUiMapper.fromList(movies)
                                     )
                                 )
                             }

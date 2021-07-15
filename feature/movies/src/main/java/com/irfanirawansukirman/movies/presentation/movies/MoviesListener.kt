@@ -1,8 +1,8 @@
 package com.irfanirawansukirman.movies.presentation.movies
 
-import com.irfanirawansukirman.cache.entity.MoviesPopularEnt
+import com.irfanirawansukirman.movies.data.model.MoviesDataModel
 
 interface MoviesListener {
 
-    fun onClickMovie(moviesPopularEnt: MoviesPopularEnt)
+    fun onClickMovie(moviesDataModel: MoviesDataModel)
 }

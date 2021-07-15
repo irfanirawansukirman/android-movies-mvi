@@ -1,9 +1,10 @@
 package com.irfanirawansukirman.movies.presentation.movies
 
 import androidx.lifecycle.viewModelScope
-import com.irfanirawansukirman.cache.entity.MoviesPopularEnt
 import com.irfanirawansukirman.core.base.BaseViewModel
+import com.irfanirawansukirman.movies.data.model.MoviesDataModel
 import com.irfanirawansukirman.movies.domain.MoviesUseCaseImpl
+import com.irfanirawansukirman.movies.presentation.movies.mapper.MoviesDomainUiMapper
 import com.irfanirawansukirman.remote.util.Resource
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
@@ -12,7 +13,8 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class MoviesViewModel @Inject constructor(
-    private val moviesUseCaseImpl: MoviesUseCaseImpl
+    private val moviesUseCaseImpl: MoviesUseCaseImpl,
+    private val moviesDomainUiMapper: MoviesDomainUiMapper
 ) : BaseViewModel<MoviesContract.MoviesEvent, MoviesContract.State, MoviesContract.MoviesEffect>() {
 
     override fun createInitialState(): MoviesContract.State {
@@ -22,20 +24,20 @@ class MoviesViewModel @Inject constructor(
     override fun handleEvent(event: MoviesContract.MoviesEvent) {
         when (event) {
             is MoviesContract.MoviesEvent.OnGetRemoteMoviesPopular -> getRemoteMoviesPopular()
-            is MoviesContract.MoviesEvent.OnSaveCacheMoviePopular -> insertCacheMoviePopular(event.moviesPopularEnt)
+            is MoviesContract.MoviesEvent.OnSaveCacheMoviePopular -> insertCacheMoviePopular(event.moviesDataModel)
         }
     }
 
-    private fun insertCacheMoviePopular(moviesPopularEnt: MoviesPopularEnt) {
+    private fun insertCacheMoviePopular(moviesDataModel: MoviesDataModel) {
         viewModelScope.launch {
-            moviesUseCaseImpl.insertMoviePopular(moviesPopularEnt)
+            moviesUseCaseImpl.insertMoviePopular(moviesDataModel)
                 .onStart { emit(Resource.Loading); delay(1_000) }
                 .collect {
                     when (it) {
                         is Resource.Loading -> setState { copy(moviesState = MoviesContract.MoviesState.Loading) }
                         is Resource.Empty -> setState { copy(moviesState = MoviesContract.MoviesState.Idle) }
                         is Resource.Success -> {
-                            val message = it.data
+                            val message = it.data ?: "Success"
                             setState {
                                 copy(
                                     moviesState = MoviesContract.MoviesState.SuccessCacheInsertMoviePopular(
@@ -63,11 +65,11 @@ class MoviesViewModel @Inject constructor(
                         is Resource.Loading -> setState { copy(moviesState = MoviesContract.MoviesState.Loading) }
                         is Resource.Empty -> setState { copy(moviesState = MoviesContract.MoviesState.Idle) }
                         is Resource.Success -> {
-                            val movies = it.data.results ?: emptyList()
+                            val movies = it.data ?: emptyList()
                             setState {
                                 copy(
                                     moviesState = MoviesContract.MoviesState.SuccessRemoteGetMoviesPopular(
-                                        movies
+                                        moviesDomainUiMapper.fromList(movies)
                                     )
                                 )
                             }

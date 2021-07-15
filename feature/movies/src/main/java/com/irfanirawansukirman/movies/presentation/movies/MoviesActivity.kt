@@ -9,17 +9,16 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
-import com.irfanirawansukirman.cache.entity.MoviesPopularEnt
 import com.irfanirawansukirman.core.ViewModelFactory
 import com.irfanirawansukirman.movies.R
+import com.irfanirawansukirman.movies.data.model.MoviesDataModel
 import com.irfanirawansukirman.movies.databinding.MoviesActivityBinding
 import com.irfanirawansukirman.movies.di.MoviesComponentProvider
 import com.irfanirawansukirman.movies.presentation.favorite.FavoriteActivity
-import com.irfanirawansukirman.remote.data.response.MoviesPopularData
+import com.irfanirawansukirman.movies.presentation.movies.model.MoviesUiModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
-
 
 @ExperimentalCoroutinesApi
 class MoviesActivity : AppCompatActivity(), MoviesListener {
@@ -149,17 +148,17 @@ class MoviesActivity : AppCompatActivity(), MoviesListener {
         }
     }
 
-    private fun showMovies(movies: List<MoviesPopularData>) {
+    private fun showMovies(movies: List<MoviesUiModel>) {
         binding.recyclerMovies.isVisible = true
 
         adapter.addAllMovies(movies)
     }
 
-    override fun onClickMovie(moviesPopularEnt: MoviesPopularEnt) {
-        insertCacheMoviePopular(moviesPopularEnt)
+    override fun onClickMovie(moviesDataModel: MoviesDataModel) {
+        insertCacheMoviePopular(moviesDataModel)
     }
 
-    private fun insertCacheMoviePopular(moviesPopularEnt: MoviesPopularEnt) {
-        viewModel.setEvent(MoviesContract.MoviesEvent.OnSaveCacheMoviePopular(moviesPopularEnt))
+    private fun insertCacheMoviePopular(moviesDataModel: MoviesDataModel) {
+        viewModel.setEvent(MoviesContract.MoviesEvent.OnSaveCacheMoviePopular(moviesDataModel))
     }
 }
