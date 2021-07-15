@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LearningMVIArchitecture">
         <activity android:name="com.irfanirawansukirman.about.AboutActivity" />
-        <activity android:name="com.irfanirawansukirman.movies.presentation.MoviesActivity">
+        <activity android:name="com.irfanirawansukirman.movies.presentation.movies.MoviesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

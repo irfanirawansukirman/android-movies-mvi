@@ -3,7 +3,8 @@
     package="com.irfanirawansukirman.movies">
 
     <application>
-        <activity android:name="com.irfanirawansukirman.movies.presentation.MoviesActivity"></activity>
+        <activity android:name=".presentation.favorite.FavoriteActivity"></activity>
+        <activity android:name=".presentation.movies.MoviesActivity" />
     </application>
 
 </manifest>

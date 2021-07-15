@@ -1,12 +1,15 @@
-package com.irfanirawansukirman.movies.presentation
+package com.irfanirawansukirman.movies.presentation.movies
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.irfanirawansukirman.cache.entity.MoviesPopularEnt
 import com.irfanirawansukirman.movies.databinding.MoviesItemBinding
 import com.irfanirawansukirman.remote.data.response.MoviesPopularData
 
-class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.ItemHolder>() {
+class MoviesAdapter(
+    private val moviesListener: MoviesListener
+) : RecyclerView.Adapter<MoviesAdapter.ItemHolder>() {
 
     private val movies = mutableListOf<MoviesPopularData>()
 
@@ -17,7 +20,7 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.ItemHolder>() {
     }
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
-        holder.bindItem(movies[holder.adapterPosition])
+        holder.bindItem(movies[holder.adapterPosition], moviesListener)
     }
 
     override fun getItemCount(): Int {
@@ -27,8 +30,19 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.ItemHolder>() {
     inner class ItemHolder(private val binding: MoviesItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bindItem(movie: MoviesPopularData) {
-            binding.tvTitle.text = movie.originalTitle
+        fun bindItem(movie: MoviesPopularData, moviesListener: MoviesListener) {
+            binding.apply {
+                tvTitle.text = movie.originalTitle
+
+                val entity = MoviesPopularEnt(
+                    movie.id,
+                    movie.originalTitle,
+                    movie.posterPath,
+                    movie.releaseDate,
+                    movie.overview
+                )
+                root.setOnClickListener { moviesListener.onClickMovie(entity) }
+            }
         }
     }
 

@@ -4,7 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.irfanirawansukirman.core.ViewModelFactory
 import com.irfanirawansukirman.core.ViewModelKey
-import com.irfanirawansukirman.movies.presentation.MoviesViewModel
+import com.irfanirawansukirman.movies.presentation.favorite.FavoriteViewModel
+import com.irfanirawansukirman.movies.presentation.movies.MoviesViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -21,4 +22,9 @@ abstract class MoviesVMModule {
     @IntoMap
     @ViewModelKey(MoviesViewModel::class)
     internal abstract fun bindMoviesViewModel(viewModel: MoviesViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(FavoriteViewModel::class)
+    internal abstract fun bindFavoriteViewModel(viewModel: FavoriteViewModel): ViewModel
 }

@@ -16,8 +16,8 @@ class MoviesUseCaseImpl @Inject constructor(
         return moviesAppRepositoryImpl.getRemoteMoviesPopular()
     }
 
-    override suspend fun insertMoviePopular(moviesPopularEnt: MoviesPopularEnt) {
-        moviesAppRepositoryImpl.insertMoviePopular(moviesPopularEnt)
+    override suspend fun insertMoviePopular(moviesPopularEnt: MoviesPopularEnt): Flow<Resource<String>> {
+        return moviesAppRepositoryImpl.insertMoviePopular(moviesPopularEnt)
     }
 
     override suspend fun getCacheMoviesPopular(): Flow<Resource<List<MoviesPopularEnt>?>> {

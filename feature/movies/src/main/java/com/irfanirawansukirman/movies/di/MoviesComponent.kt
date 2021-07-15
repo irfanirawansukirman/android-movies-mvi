@@ -1,7 +1,8 @@
 package com.irfanirawansukirman.movies.di
 
 import android.app.Application
-import com.irfanirawansukirman.movies.presentation.MoviesActivity
+import com.irfanirawansukirman.movies.presentation.favorite.FavoriteActivity
+import com.irfanirawansukirman.movies.presentation.movies.MoviesActivity
 import dagger.BindsInstance
 import dagger.Component
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -22,4 +23,6 @@ interface MoviesComponent {
     }
 
     fun inject(activity: MoviesActivity)
+
+    fun inject(activity: FavoriteActivity)
 }

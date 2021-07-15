@@ -9,7 +9,7 @@ interface MoviesAppRepository {
 
     suspend fun getRemoteMoviesPopular(): Flow<Resource<MoviesPopularResponse>>
 
-    suspend fun insertMoviePopular(moviesPopularEnt: MoviesPopularEnt)
+    suspend fun insertMoviePopular(moviesPopularEnt: MoviesPopularEnt): Flow<Resource<String>>
 
     suspend fun getCacheMoviesPopular(): Flow<Resource<List<MoviesPopularEnt>?>>
 }

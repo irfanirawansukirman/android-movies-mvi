@@ -9,7 +9,7 @@ class MoviesCacheRepositoryImpl @Inject constructor(
 ): MoviesCacheRepository {
 
     override suspend fun insertMoviePopular(moviesPopularEnt: MoviesPopularEnt) {
-        movieDao.insert(moviesPopularEnt)
+        movieDao.insertObject(moviesPopularEnt)
     }
 
     override suspend fun getCacheMoviesPopular(): List<MoviesPopularEnt>? {

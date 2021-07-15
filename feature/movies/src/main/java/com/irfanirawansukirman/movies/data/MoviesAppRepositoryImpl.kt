@@ -25,8 +25,20 @@ class MoviesAppRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun insertMoviePopular(moviesPopularEnt: MoviesPopularEnt) {
-        moviesCacheRepositoryImpl.insertMoviePopular(moviesPopularEnt)
+    override suspend fun insertMoviePopular(moviesPopularEnt: MoviesPopularEnt): Flow<Resource<String>> {
+        return flow {
+            try {
+                val beforeSize = moviesCacheRepositoryImpl.getCacheMoviesPopular()?.size ?: 0
+
+                moviesCacheRepositoryImpl.insertMoviePopular(moviesPopularEnt)
+
+                val afterSize = moviesCacheRepositoryImpl.getCacheMoviesPopular()?.size ?: 0
+
+                emit(Resource.Success(if (afterSize > beforeSize) "Success" else "Failed"))
+            } catch (e: Exception) {
+                emit(Resource.Error(e))
+            }
+        }
     }
 
     override suspend fun getCacheMoviesPopular(): Flow<Resource<List<MoviesPopularEnt>?>> {
