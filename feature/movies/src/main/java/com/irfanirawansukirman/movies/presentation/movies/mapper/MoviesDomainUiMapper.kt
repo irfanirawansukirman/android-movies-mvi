@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class MoviesDomainUiMapper @Inject constructor() : Mapper<MoviesPopularEntity, MoviesUiModel> {
 
-    override fun before(previous: MoviesPopularEntity?): MoviesUiModel? {
+    override fun before(previous: MoviesPopularEntity?): MoviesUiModel {
         return MoviesUiModel(
             previous?.id,
             previous?.name,
@@ -17,7 +17,7 @@ class MoviesDomainUiMapper @Inject constructor() : Mapper<MoviesPopularEntity, M
         )
     }
 
-    override fun after(next: MoviesUiModel?): MoviesPopularEntity? {
+    override fun after(next: MoviesUiModel?): MoviesPopularEntity {
         return MoviesPopularEntity(
             next?.id,
             next?.name,

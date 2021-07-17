@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class MoviesCacheMapper @Inject constructor() : Mapper<MoviesPopularEnt, MoviesDataModel> {
 
-    override fun before(previous: MoviesPopularEnt?): MoviesDataModel? {
+    override fun before(previous: MoviesPopularEnt?): MoviesDataModel {
         return MoviesDataModel(
             previous?.id,
             previous?.name,
@@ -17,7 +17,7 @@ class MoviesCacheMapper @Inject constructor() : Mapper<MoviesPopularEnt, MoviesD
         )
     }
 
-    override fun after(next: MoviesDataModel?): MoviesPopularEnt? {
+    override fun after(next: MoviesDataModel?): MoviesPopularEnt {
         return MoviesPopularEnt(
             next?.id,
             next?.name,

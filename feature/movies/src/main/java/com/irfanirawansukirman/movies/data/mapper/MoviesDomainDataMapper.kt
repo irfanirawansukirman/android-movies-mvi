@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class MoviesDomainDataMapper @Inject constructor() : Mapper<MoviesDataModel, MoviesPopularEntity> {
 
-    override fun before(previous: MoviesDataModel?): MoviesPopularEntity? {
+    override fun before(previous: MoviesDataModel?): MoviesPopularEntity {
         return MoviesPopularEntity(
             previous?.id,
             previous?.name,
@@ -17,7 +17,7 @@ class MoviesDomainDataMapper @Inject constructor() : Mapper<MoviesDataModel, Mov
         )
     }
 
-    override fun after(next: MoviesPopularEntity?): MoviesDataModel? {
+    override fun after(next: MoviesPopularEntity?): MoviesDataModel {
         return MoviesDataModel(
             next?.id,
             next?.name,

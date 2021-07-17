@@ -2,7 +2,7 @@ object Version {
 
     // plugin
     const val gradlePlugin = "4.2.2"
-    const val kotlin = "1.4.21"
+    const val kotlin = "1.5.20"
 
     // app
     const val appCompat = "1.3.0"
@@ -17,16 +17,16 @@ object Version {
     const val runtimeKtx = "2.4.0-alpha02"
     const val legacySupportV4 = "1.0.0"
 
-    const val coroutinesCore = "1.5.0"
-    const val coroutinesAndroid = "1.5.0"
+    const val coroutinesCore = "1.5.1"
+    const val coroutinesAndroid = "1.5.1"
 
     const val retrofit2 = "2.9.0"
     const val okHttp = "4.9.1"
     const val loggingInterceptor = "4.9.1"
     const val converterMoshi = "2.9.0"
-    const val moshiKotlinCodegen = "1.11.0"
-    const val moshiKotlin = "1.11.0"
-    const val moshi = "1.11.0"
+    const val moshiKotlinCodegen = "1.12.0"
+    const val moshiKotlin = "1.12.0"
+    const val moshi = "1.12.0"
 
     const val roomRuntime = "2.3.0"
     const val roomKtx = "2.3.0"
@@ -38,10 +38,10 @@ object Version {
     const val glide = "4.12.0"
     const val glideCompiler = "4.12.0"
 
-    const val dagger = "2.36"
+    const val dagger = "2.37"
     const val daggerAndroid = "2.35.1"
     const val daggerAndroidSupport = "2.29.1"
-    const val daggerCompiler = "2.33"
+    const val daggerCompiler = "2.37"
     const val daggerAndroidProcessor = "2.29.1"
 
     const val chuck = "1.1.0"
@@ -55,8 +55,10 @@ object Version {
     const val espressoCore = "3.4.0"
     const val espressoIntents = "3.4.0"
     const val junitExt = "1.1.3"
-    const val mockk = "1.11.0"
-    const val coroutinesTest = "1.5.0"
+    const val mockk = "1.12.0"
+    const val coroutinesTest = "1.5.1"
     const val testRunner = "1.4.0"
     const val testRules = "1.4.0"
+    const val googleTruth = "1.1.3"
+    const val turbine = "0.5.2"
 }

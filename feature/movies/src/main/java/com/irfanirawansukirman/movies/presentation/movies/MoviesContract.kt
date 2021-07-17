@@ -10,7 +10,7 @@ object MoviesContract {
 
     sealed class MoviesEvent : UiEvent {
         object OnGetRemoteMoviesPopular : MoviesEvent()
-        data class OnSaveCacheMoviePopular(val moviesDataModel: MoviesDataModel) : MoviesEvent()
+        data class OnInsertCacheMoviePopular(val moviesDataModel: MoviesDataModel) : MoviesEvent()
     }
 
     sealed class MoviesState {

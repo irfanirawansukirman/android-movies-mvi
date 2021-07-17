@@ -55,4 +55,6 @@ object App {
     val testRunner by lazy { "androidx.test:runner:${Version.testRunner}" }
     val testRules by lazy { "androidx.test:rules:${Version.testRules}" }
     val roomTesting by lazy { "androidx.room:room-testing:${Version.roomTesting}" }
+    val googleTruth by lazy { "com.google.truth:truth:${Version.googleTruth}" }
+    val turbine by lazy { "app.cash.turbine:turbine:${Version.turbine}" }
 }

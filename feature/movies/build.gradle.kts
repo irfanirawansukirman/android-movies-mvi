@@ -51,4 +51,12 @@ dependencies {
     implementation(project(":core"))
 
     kapt(App.daggerCompiler)
+
+    testImplementation(App.junit)
+    testImplementation(App.mockk)
+    testImplementation(App.coreTesting)
+    testImplementation(App.coroutinesTest)
+    testImplementation(App.googleTruth)
+    testImplementation(App.turbine)
+    testImplementation(App.testRunner)
 }

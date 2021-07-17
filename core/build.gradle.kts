@@ -70,14 +70,4 @@ dependencies {
     api(App.runtimeKtx)
     api(App.lifecycleCommonJava8)
     api(App.viewModelKtx)
-
-    testApi(App.junit)
-    testApi(App.mockk)
-    testApi(App.coroutinesTest)
-    testApi(App.coreTesting)
-    androidTestApi(App.junitExt)
-    androidTestApi(App.espressoCore)
-    androidTestApi(App.espressoIntents)
-    androidTestApi(App.testRunner)
-    androidTestApi(App.testRules)
 }

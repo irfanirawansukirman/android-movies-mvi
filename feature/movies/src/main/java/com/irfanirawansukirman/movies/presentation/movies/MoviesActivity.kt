@@ -159,6 +159,6 @@ class MoviesActivity : AppCompatActivity(), MoviesListener {
     }
 
     private fun insertCacheMoviePopular(moviesDataModel: MoviesDataModel) {
-        viewModel.setEvent(MoviesContract.MoviesEvent.OnSaveCacheMoviePopular(moviesDataModel))
+        viewModel.setEvent(MoviesContract.MoviesEvent.OnInsertCacheMoviePopular(moviesDataModel))
     }
 }
