@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1017797630671",
+    "project_id": "android-movies-mvi",
+    "storage_bucket": "android-movies-mvi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1017797630671:android:bb2427c5384b6846daf5ba",
+        "android_client_info": {
+          "package_name": "com.example.learningmviarchitecture"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1017797630671-97194ar144lf9pk1bdmfrgk7fjshfg30.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.learningmviarchitecture",
+            "certificate_hash": "e4534637946484d9db0136e6cb66eef60272e147"
+          }
+        },
+        {
+          "client_id": "1017797630671-2uc4k6pfsfisvi3lb9bducm57koc8ink.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZ7lRwlsXDcUMVibgo-qKdvIoK14GMaSE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1017797630671-2uc4k6pfsfisvi3lb9bducm57koc8ink.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

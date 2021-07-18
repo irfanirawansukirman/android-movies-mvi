@@ -70,4 +70,7 @@ dependencies {
     api(App.runtimeKtx)
     api(App.lifecycleCommonJava8)
     api(App.viewModelKtx)
+
+    api(App.crashlytics)
+    api(App.analytics)
 }

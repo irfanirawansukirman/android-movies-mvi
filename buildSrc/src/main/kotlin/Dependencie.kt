@@ -1,6 +1,8 @@
 object Plugin {
     val android by lazy { "com.android.tools.build:gradle:${Version.gradlePlugin}" }
     val kotlin by lazy { "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.kotlin}" }
+    val googleService by lazy { "com.google.gms:google-services:${Version.googleService}" }
+    val firebaseCrashlytics by lazy { "com.google.firebase:firebase-crashlytics-gradle:${Version.firebaseCrashlytics}" }
 }
 
 object App {
@@ -44,6 +46,9 @@ object App {
     val chuck by lazy { "com.readystatesoftware.chuck:library:${Version.chuck}" }
     val chuckNoOp by lazy { "com.readystatesoftware.chuck:library-no-op:${Version.chuck}" }
     val stetho by lazy { "com.facebook.stetho:stetho:${Version.stetho}" }
+
+    val crashlytics by lazy { "com.google.firebase:firebase-crashlytics:${Version.crashlytics}" }
+    val analytics by lazy { "com.google.firebase:firebase-analytics:${Version.analytics}" }
 
     val junit by lazy { "junit:junit:${Version.junit}" }
     val mockk by lazy { "io.mockk:mockk:${Version.mockk}" }
