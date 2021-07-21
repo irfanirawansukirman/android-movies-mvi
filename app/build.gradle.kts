@@ -59,10 +59,11 @@ dependencies {
     implementation(project(":feature:movies"))
     implementation(project(":feature:about"))
 
-    implementation(App.stetho)
+    // Import the BoM for the Firebase platform
+    implementation(platform(App.firebaseBom))
 
-    implementation(App.coreKtx)
-    implementation(App.appCompat)
-    implementation(App.materialUi)
-    implementation(App.constraintLayout)
+    // Declare the dependencies for the Crashlytics and Analytics libraries
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation(App.crashlyticsKtx)
+    implementation(App.analyticsKtx)
 }

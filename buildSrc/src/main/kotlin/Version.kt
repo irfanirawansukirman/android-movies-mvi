@@ -4,7 +4,7 @@ object Version {
     const val gradlePlugin = "4.2.2"
     const val kotlin = "1.5.20"
     const val googleService = "4.3.8"
-    const val firebaseCrashlytics = "2.7.1"
+    const val firebaseCrashlytics = "2.4.1"
 
     // app
     const val appCompat = "1.3.0"
@@ -50,8 +50,7 @@ object Version {
     const val timber = "4.7.1"
     const val stetho = "1.5.1"
 
-    const val crashlytics = "18.1.0"
-    const val analytics = "19.0.0"
+    const val firebaseBom = "26.2.0"
 
     // test
     const val junit = "4.13.2"

@@ -47,8 +47,9 @@ object App {
     val chuckNoOp by lazy { "com.readystatesoftware.chuck:library-no-op:${Version.chuck}" }
     val stetho by lazy { "com.facebook.stetho:stetho:${Version.stetho}" }
 
-    val crashlytics by lazy { "com.google.firebase:firebase-crashlytics:${Version.crashlytics}" }
-    val analytics by lazy { "com.google.firebase:firebase-analytics:${Version.analytics}" }
+    val firebaseBom by lazy { "com.google.firebase:firebase-bom:${Version.firebaseBom}" }
+    val crashlyticsKtx by lazy { "com.google.firebase:firebase-crashlytics-ktx" }
+    val analyticsKtx by lazy { "com.google.firebase:firebase-analytics-ktx" }
 
     val junit by lazy { "junit:junit:${Version.junit}" }
     val mockk by lazy { "io.mockk:mockk:${Version.mockk}" }
