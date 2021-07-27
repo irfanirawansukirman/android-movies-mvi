@@ -7,8 +7,8 @@ plugins {
     id("kotlin-parcelize")
 }
 
-val movieApiBaseUrl: String = gradleLocalProperties(rootDir).getProperty("MOVIE_API_BASE_URL")
-val tmdbApiKey: String = gradleLocalProperties(rootDir).getProperty("TMDB_API_KEY")
+//val movieApiBaseUrl: String = gradleLocalProperties(rootDir).getProperty("MOVIE_API_BASE_URL")
+//val tmdbApiKey: String = gradleLocalProperties(rootDir).getProperty("TMDB_API_KEY")
 
 android {
     compileSdkVersion(Android.compileSdk)
@@ -23,8 +23,8 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
 
-        buildConfigField("String", "MOVIE_API_BASE_URL", "\"" + movieApiBaseUrl + "\"")
-        buildConfigField("String", "TMDB_API_KEY", "\"" + tmdbApiKey + "\"")
+        buildConfigField("String", "MOVIE_API_BASE_URL", "\"" + "https://api.themoviedb.org/3/" + "\"")
+        buildConfigField("String", "TMDB_API_KEY", "\"" + "16241fe7ae72859ad73bfdc8ede14365" + "\"")
     }
 
     buildTypes {
