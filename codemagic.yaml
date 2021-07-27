@@ -2,6 +2,13 @@ workflows:
   simple-workflow:
     name: Android Movies MVI
     max_build_duration: 60
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: develop
+          include: true
+          source: true
     scripts:
       - name: Build debug apk
         script: ./gradlew assembleDebug
@@ -11,3 +18,6 @@ workflows:
       email:
         recipients:
           - dadang.kotz@gmail.com
+        notify:
+          success: true
+          failure: true
