@@ -10,7 +10,7 @@ workflows:
           include: true
           source: true
     scripts:
-      - name: Build debug apk
+      - name: Build debug apks
         script: ./gradlew assembleDebug
     artifacts:
       - app/build/**/outputs/**/*.apk
