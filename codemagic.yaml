@@ -1,0 +1,13 @@
+workflows:
+  simple-workflow:
+    name: Android Movies MVI
+    max_build_duration: 60
+    scripts:
+      - name: Build debug apk
+        script: ./gradlew assembleDebug
+    artifacts:
+      - app/build/**/outputs/**/*.apk
+    publishing:
+      email:
+        recipients:
+          - dadang.kotz@gmail.com
