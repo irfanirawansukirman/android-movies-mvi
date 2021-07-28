@@ -13,6 +13,8 @@ workflows:
           include: true
           source: true
     scripts:
+      - name: Running Tests
+        script: ./gradlew test
       - name: Build debug apks
         script: ./gradlew assembleDebug
     artifacts:
