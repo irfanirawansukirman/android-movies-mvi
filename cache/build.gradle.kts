@@ -6,8 +6,8 @@ plugins {
     id("kotlin-kapt")
 }
 
-//val dbMovies: String = gradleLocalProperties(rootDir).getProperty("DB_MOVIES")
-//val secretPreferenceName: String = gradleLocalProperties(rootDir).getProperty("SECRET_PREFERENCE_NAME")
+val dbMovies: String = System.getenv("DB_MOVIES")
+val secretPreferenceName: String = System.getenv("SECRET_PREFERENCE_NAME")
 
 android {
     compileSdkVersion(Android.compileSdk)
@@ -22,8 +22,8 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
 
-        buildConfigField("String", "DB_MOVIES", "\"" + "db_movies" + "\"")
-        buildConfigField("String", "SECRET_PREFERENCE_NAME", "\"" + "my_secret_preference" + "\"")
+        buildConfigField("String", "DB_MOVIES", "\"" + dbMovies + "\"")
+        buildConfigField("String", "SECRET_PREFERENCE_NAME", "\"" + secretPreferenceName + "\"")
     }
 
     buildTypes {
