@@ -2,6 +2,9 @@ workflows:
   simple-workflow:
     name: Android Movies MVI
     max_build_duration: 60
+    environment:
+      groups:
+        - android_movies
     triggering:
       events:
         - push
