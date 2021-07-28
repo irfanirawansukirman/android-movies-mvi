@@ -5,32 +5,28 @@ import androidx.lifecycle.viewModelScope
 import com.irfanirawansukirman.core.UiEffect
 import com.irfanirawansukirman.core.UiEvent
 import com.irfanirawansukirman.core.UiState
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.flow.SharingStarted.Companion.WhileSubscribed
 import kotlinx.coroutines.launch
-
 
 /**
  * Base class for [ViewModel] instances
  */
 abstract class BaseViewModel<Event : UiEvent, State : UiState, Effect : UiEffect> : ViewModel() {
 
-    private val initialState : State by lazy { createInitialState() }
-    abstract fun createInitialState() : State
+    private val initialState: State by lazy { createInitialState() }
+    abstract fun createInitialState(): State
 
     val currentState: State
         get() = uiState.value
 
-    private val _uiState : MutableStateFlow<State> = MutableStateFlow(initialState)
+    private val _uiState: MutableStateFlow<State> = MutableStateFlow(initialState)
     val uiState = _uiState.asStateFlow()
 
-    private val _event : MutableSharedFlow<Event> = MutableSharedFlow()
+    private val _event: MutableSharedFlow<Event> = MutableSharedFlow()
     val event = _event.asSharedFlow()
 
-    private val _effect : Channel<Effect> = Channel()
+    private val _effect: Channel<Effect> = Channel()
     val effect = _effect.receiveAsFlow()
 
     init {
