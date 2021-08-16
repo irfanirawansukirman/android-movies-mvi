@@ -70,4 +70,8 @@ dependencies {
     api(App.runtimeKtx)
     api(App.lifecycleCommonJava8)
     api(App.viewModelKtx)
+
+    api(platform(App.firebaseBom))
+    api(App.crashlyticsKtx)
+    api(App.analyticsKtx)
 }
