@@ -58,12 +58,4 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":feature:movies"))
     implementation(project(":feature:about"))
-
-    // Import the BoM for the Firebase platform
-    implementation(platform(App.firebaseBom))
-
-    // Declare the dependencies for the Crashlytics and Analytics libraries
-    // When using the BoM, you don't specify versions in Firebase library dependencies
-    implementation(App.crashlyticsKtx)
-    implementation(App.analyticsKtx)
 }
