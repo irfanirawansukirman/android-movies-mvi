@@ -1,0 +1,28 @@
+workflows:
+  simple-workflow:
+    name: Android Movies MVI
+    max_build_duration: 60
+    environment:
+      groups:
+        - android_movies
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: develop
+          include: true
+          source: true
+    scripts:
+      - name: Running Tests
+        script: ./gradlew test
+      - name: Build debug apks
+        script: ./gradlew assembleDebug
+    artifacts:
+      - app/build/**/outputs/**/*.apk
+    publishing:
+      email:
+        recipients:
+          - dadang.kotz@gmail.com
+        notify:
+          success: true
+          failure: true
